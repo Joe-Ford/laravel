@@ -35,11 +35,12 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/create', 'CreateBlogController@index')->name('createBlog');
     Route::post('/create', 'CreateBlogController@create');
     Route::get('/posts', 'UserPostsController@getPosts')->name('posts');
+    Route::get('/post', 'UserPostsController@getLatestPost')->name('post');
     //admin
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AccountController@index')->name('admin');
 
-        Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
+        /*Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
         Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
         Route::post('/categories/add', 'Admin\CategoriesController@addRequestCategory');
         Route::get('/categories/edit{id}', 'Admin\CategoriesController@editCategory')
@@ -47,6 +48,6 @@ Route::group(['middleware'=>'auth'], function() {
             ->name('categories.edit');
         Route::post('/categories/edit{id}', 'Admin\CategoriesController@editRequestCategory')
             ->where('id', '\d+');
-        Route::delete('/categories/delete', 'Admin\CategoriesController@deleteCategory')->name('categories.delete');
+        Route::delete('/categories/delete', 'Admin\CategoriesController@deleteCategory')->name('categories.delete');*/
     });
 });

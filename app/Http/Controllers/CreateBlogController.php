@@ -27,8 +27,7 @@ class CreateBlogController extends Controller
         $post->post = $request->post;
         $post->user_id = Auth::user()->id;
         $post->save();
-
-        return view('account.successful_post');
+        return redirect()->route('post');
     }
 }
 
