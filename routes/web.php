@@ -36,6 +36,8 @@ Route::group(['middleware'=>'auth'], function() {
     Route::post('/create', 'CreateBlogController@create');
     Route::get('/posts', 'UserPostsController@getPosts')->name('posts');
     Route::get('/post', 'UserPostsController@getLatestPost')->name('post');
+    Route::get('/posts/{id}', 'UserPostsController@getCurrentPost')
+        ->name('currentPost');
     //admin
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AccountController@index')->name('admin');

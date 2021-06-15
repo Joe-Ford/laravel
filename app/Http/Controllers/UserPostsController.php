@@ -26,9 +26,17 @@ class UserPostsController extends Controller
         return view('account.successful_post', compact('post'));
     }
 
+    public function getCurrentPost(int $id)
+    {
+        $postData = Post::where('id', $id)
+            ->get();
+        $post = $postData[0];
+
+        return view('account.successful_post', compact('post'));
+    }
+
     private function getCurrentUser()
     {
         return Auth::user()->id;
     }
 }
-

@@ -7,7 +7,7 @@
         </div>
         @foreach($posts as $post)
             <article class="blog-post">
-                <h2 class="blog-post-title">{!! $post->title !!}</h2>
+                <h2 class="blog-post-title"><a href="{!! route('currentPost', $post->id) !!}">{!! $post->title !!}</a></h2>
                 <p class="blog-post-meta">{!! $post->created_at !!}</p>
                 <hr>
             </article>
