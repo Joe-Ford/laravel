@@ -24,6 +24,7 @@ class UserPostsController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
         $post = $posts->first();
+
         return view('account.successful_post', compact('post'));
     }
 
@@ -39,6 +40,7 @@ class UserPostsController extends Controller
     public function viewEditForm(int $data)
     {
         $id = $data;
+
         return view('account.edit_post', compact('id'));
     }
 

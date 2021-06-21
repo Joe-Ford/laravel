@@ -12,6 +12,7 @@ class UserController extends Controller
     public function getUsers()
     {
         $users = User::all();
+
         return view('admin.user.users', compact('users'));
     }
 }

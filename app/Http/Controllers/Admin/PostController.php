@@ -12,6 +12,7 @@ class PostController extends Controller
     public function getPosts()
     {
         $posts = Post::all();
+
         return view('admin.post.posts', compact('posts'));
     }
 }
