@@ -41,9 +41,13 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/posts/edit/{id}', 'UserPostsController@viewEditForm')
         ->name('editPost');
     Route::post('/posts/edit/{id}', 'UserPostsController@editPost');
+
     //admin
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AccountController@index')->name('admin');
+        Route::get('/users', 'Admin\UserController@getUsers')->name('users');
+        //Route::get('/user/edit/{id}', 'Admin\UserController@editUser')->name('userEdit');
+        Route::get('/posts', 'Admin\PostController@getPosts')->name('allPosts');
 
         /*Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
         Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
