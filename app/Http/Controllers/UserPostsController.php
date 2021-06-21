@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserPostsController extends Controller
@@ -31,6 +32,22 @@ class UserPostsController extends Controller
         $postData = Post::where('id', $id)
             ->get();
         $post = $postData[0];
+
+        return view('account.successful_post', compact('post'));
+    }
+
+    public function viewEditForm(int $data)
+    {
+        $id = $data;
+        return view('account.edit_post', compact('id'));
+    }
+
+    public function editPost(Request $request, int $id)
+    {
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->post = $request->post;
+        $post->save();
 
         return view('account.successful_post', compact('post'));
     }

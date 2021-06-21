@@ -8,9 +8,10 @@
 
         <p class="blog-post-meta">{!! $post->post !!}</p>
         <hr>
-        <div style="width: 200px; display: flex; justify-content: space-between">
+        <div style="width: 300px; display: flex; justify-content: space-between">
             <a class="link-secondary" href="{!! route('template') !!}">Home</a>
             <a class="link-secondary" href="{!! route('posts') !!}">Posts</a>
+            <a class="link-secondary" href="{!! route('editPost', $post->id) !!}">Edit</a>
         </div>
     </article>
     </div>

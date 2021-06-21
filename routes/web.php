@@ -38,6 +38,9 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/post', 'UserPostsController@getLatestPost')->name('post');
     Route::get('/posts/{id}', 'UserPostsController@getCurrentPost')
         ->name('currentPost');
+    Route::get('/posts/edit/{id}', 'UserPostsController@viewEditForm')
+        ->name('editPost');
+    Route::post('/posts/edit/{id}', 'UserPostsController@editPost');
     //admin
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AccountController@index')->name('admin');
