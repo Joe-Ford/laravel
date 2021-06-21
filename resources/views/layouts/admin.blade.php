@@ -42,25 +42,19 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="{!! route('admin') !!}">
                                 <span data-feather="home"></span>
-                                Main<span class="sr-only">(current)</span>
+                                Main<span class="sr-only"></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{!! route('categories') !!}">
-                                <span data-feather="shopping-cart"></span>
-                                Categories
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Blogs
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{!! route('users') !!}">
                                 <span data-feather="users"></span>
                                 Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{!! route('allPosts') !!}">
+                                <span data-feather="file-text"></span>
+                                Posts
                             </a>
                         </li>
                     </ul>
@@ -97,6 +91,12 @@
                             </a>
                         </li>
                     </ul>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <a href="{!! route('template') !!}">
+                            <span data-feather="chevron-left"></span>
+                            Account
+                        </a>
+                    </h6>
                 </div>
             </nav>
 

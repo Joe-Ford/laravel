@@ -28,14 +28,13 @@
                         <li><a href="/docs/5.0/getting-started/introduction/">Bootstrap quick start guide</a></li>
                         <li><a href="/docs/5.0/getting-started/webpack/">Bootstrap Webpack guide</a></li>
                         <li><a href="/docs/5.0/getting-started/parcel/">Bootstrap Parcel guide</a></li>
-                        <li><a href="/docs/5.0/getting-started/build-tools/">Contributing to Bootstrap</a></li>
+                        @if(\Auth::user()->isAdmin == 1)
+                            <li><a href="{{ route('admin') }}">Admin Panel</a></li><br>
+                        @endif
                     </ul>
                 </div>
             </div>
         </div>
     </main>
     <br>
-    @if(\Auth::user()->isAdmin == 1)
-        <a href="{{ route('admin') }}">Admin Panel</a><br>
-    @endif
 @endsection
