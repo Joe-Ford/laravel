@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -18,13 +17,7 @@ class Post extends Model
 
     protected $casts = [
         'id' => 'integer',
-        'title' => 'string',/*public function getPosts()
-    {
-        $posts = $this->where('user_id', Auth::user()->id)
-            ->orderBy('created_at');
-
-        return $posts;
-    }*/
+        'title' => 'string',
         'post' => 'string',
         'user_id' => 'integer'
     ];
