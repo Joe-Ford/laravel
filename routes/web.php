@@ -32,8 +32,10 @@ Route::group(['middleware'=>'auth'], function() {
         return redirect(route('login'));
     })->name('logout');
     Route::get('/my/account', 'Auth\TemplateController@index')->name('template');
+
     Route::get('/create', 'CreateBlogController@index')->name('createBlog');
     Route::post('/create', 'CreateBlogController@create');
+
     Route::get('/posts', 'UserPostsController@getPosts')->name('posts');
     Route::get('/post', 'UserPostsController@getLatestPost')->name('post');
     Route::get('/posts/{id}', 'UserPostsController@getCurrentPost')
@@ -45,9 +47,14 @@ Route::group(['middleware'=>'auth'], function() {
     //admin
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'Admin\AccountController@index')->name('admin');
+
         Route::get('/users', 'Admin\UserController@getUsers')->name('users');
-        //Route::get('/user/edit/{id}', 'Admin\UserController@editUser')->name('userEdit');
+        Route::get('/user/edit/{id}', 'Admin\UserController@viewUser')->name('userEdit');
+        Route::post('/user/edit/{id}', 'Admin\UserController@editUser')->name('saveUser');
+
         Route::get('/posts', 'Admin\PostController@getPosts')->name('allPosts');
+        //Route::get('/posts/edit/{id}', 'Admin\PostController@viewPost')->name('postEdit');
+        //Route::post('/posts/edit/{id}', 'Admin\PostController@editPost');
 
         /*Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
         Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
