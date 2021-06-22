@@ -53,8 +53,9 @@ Route::group(['middleware'=>'auth'], function() {
         Route::post('/user/edit/{id}', 'Admin\UserController@editUser')->name('saveUser');
 
         Route::get('/posts', 'Admin\PostController@getPosts')->name('allPosts');
-        //Route::get('/posts/edit/{id}', 'Admin\PostController@viewPost')->name('postEdit');
-        //Route::post('/posts/edit/{id}', 'Admin\PostController@editPost');
+        Route::get('/posts/edit/{id}', 'Admin\PostController@viewPost')->name('viewPost');
+        Route::post('/posts/edit/{id}', 'Admin\PostController@editPost')->name('savePost');
+        //Route::delete('/posts/edit/{id}', 'Admin\PostController@deletePost');
 
         /*Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
         Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
