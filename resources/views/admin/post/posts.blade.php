@@ -32,7 +32,7 @@
                                         <span class="text-muted">{!! $post->created_at !!}</span><br>
                                     </td>
                                     <td>
-                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                        <a href="{!! route("viewPost", $post->id) !!}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                             <span class="text-muted" data-feather="edit-2"></span>
                                             <br>
                                         </a>
