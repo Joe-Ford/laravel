@@ -16,6 +16,7 @@
                                     <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Created</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Changed</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Role</th>
                                 </tr>
                             </thead>
@@ -33,6 +34,9 @@
                                             <span class="text-muted">{!! $user->created_at !!}</span><br>
                                         </td>
                                         <td>
+                                            <span class="text-muted">{!! $user->updated_at !!}</span><br>
+                                        </td>
+                                        <td>
                                             <span class="text-muted">
                                                 @if($user->isAdmin == 1)
                                                     Admin
@@ -40,6 +44,12 @@
                                                     User
                                                 @endif
                                             </span><br>
+                                        </td>
+                                        <td>
+                                            <a href="{!! route('userEdit', $user->id) !!}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                <span class="text-muted" data-feather="edit-2"></span>
+                                                <br>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
