@@ -12,6 +12,7 @@
                         <table class="table no-wrap user-table mb-0">
                             <thead>
                             <tr>
+                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
                                 <th scope="col" class="border-0 text-uppercase font-medium pl-4">Id</th>
                                 <th scope="col" class="border-0 text-uppercase font-medium">Title</th>
                                 <th scope="col" class="border-0 text-uppercase font-medium">User id</th>
@@ -21,6 +22,7 @@
                             <tbody>
                             @foreach($posts as $post)
                                 <tr>
+                                    <td class="pl-4">{!! $post->key !!}</td>
                                     <td class="pl-4">{!! $post->id !!}</td>
                                     <td>
                                         <h5 class="font-medium mb-0">{!! $post->title !!}</h5>
@@ -38,9 +40,14 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                            <span class="text-muted" data-feather="trash-2"></span>
-                                            <br>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" style="cursor: pointer">
+                                            <form action="{!! route("deletePost", $post->id) !!}" method="post" class="click">
+                                                {{ method_field('delete') }}
+                                                @csrf
+                                                <span class="text-muted" data-feather="trash-2" onclick="$('.click').submit()">
+                                                </span>
+                                                <br>
+                                            </form>
                                         </a>
                                     </td>
                                 </tr>
