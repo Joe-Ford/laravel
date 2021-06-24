@@ -55,7 +55,7 @@ Route::group(['middleware'=>'auth'], function() {
         Route::get('/posts', 'Admin\PostController@getPosts')->name('allPosts');
         Route::get('/posts/edit/{id}', 'Admin\PostController@viewPost')->name('viewPost');
         Route::post('/posts/edit/{id}', 'Admin\PostController@editPost')->name('savePost');
-        //Route::delete('/posts/edit/{id}', 'Admin\PostController@deletePost');
+        Route::delete('/posts/delete/{id}', 'Admin\PostController@deletePost')->name('deletePost');
 
         /*Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
         Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
