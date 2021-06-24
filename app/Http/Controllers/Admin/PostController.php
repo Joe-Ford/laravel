@@ -12,11 +12,6 @@ class PostController extends Controller
     public function getPosts()
     {
         $posts = $this->getAllPosts();
-        $i = 1;
-        foreach ($posts as $post)
-        {
-            $post->key = $i++;
-        }
 
         return view('admin.post.posts', compact('posts'));
     }
@@ -42,7 +37,7 @@ class PostController extends Controller
 
     public function deletePost(int $id)
     {
-        $post = Post::find($id)->delete();
+        Post::find($id)->delete();
 
         $posts = $this->getAllPosts();
 
@@ -51,6 +46,12 @@ class PostController extends Controller
 
     private function getAllPosts()
     {
-        return Post::all();
+        $posts = Post::paginate(5);
+        $i = 1;
+        foreach ($posts as $post)
+        {
+            $post->key = $i++;
+        }
+        return $posts;
     }
 }

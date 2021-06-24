@@ -54,6 +54,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <div style="margin-left: 20px; margin-top: 20px">
+                            {!! $posts->render() !!}
+                        </div>
                     </div>
                 </div>
             </div>
