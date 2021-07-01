@@ -11,13 +11,13 @@
                     <div class="table-responsive">
                         <table class="table no-wrap user-table mb-0">
                             <thead>
-                            <tr>
-                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">Id</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Title</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">User id</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Created</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-4">Id</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Title</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">User id</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Created</th>
+                                </tr>
                             </thead>
                             <tbody>
                             @foreach($posts as $post)
@@ -54,9 +54,9 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <div style="margin-left: 20px; margin-top: 20px">
-                            {!! $posts->render() !!}
-                        </div>
+                    </div>
+                    <div style="margin-left: 20px; margin-top: 20px">
+                        {!! $posts->render() !!}
                     </div>
                 </div>
             </div>

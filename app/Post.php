@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Events\PostEvent;
 
 class Post extends Model
 {
@@ -27,5 +28,11 @@ class Post extends Model
         'updated_at'
     ];
 
-
+    public static function boot()
+    {
+        parent::boot();
+        static::created(function ($post) {
+            PostEvent::fire('post.created', $post);
+        });
+    }
 }
