@@ -17,7 +17,7 @@ class CreateBlogTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('post');
-            $table->bigIncrements('user_id');
+            $table->bigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
